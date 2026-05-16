@@ -28,7 +28,7 @@ Converting the `Report` instance to [JSON](https://www.json.org) format will ret
   "TestName": "Example",
   "SourceFiles": [
     {
-      "Path": "/home/cedx/Lcov.net/fixture.cs",
+      "Path": "/home/CedX/Lcov.net/Fixture.cs",
       "Branches": {
         "Found": 0,
         "Hit": 0,

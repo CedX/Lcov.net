@@ -25,9 +25,9 @@ public sealed class ReportTests {
 		AreEqual("Example", report.TestName);
 
 		HasCount(3, report.SourceFiles);
-		AreEqual("/home/cedx/Lcov.net/fixture.cs", report.SourceFiles[0].Path);
-		AreEqual("/home/cedx/Lcov.net/func1.cs", report.SourceFiles[1].Path);
-		AreEqual("/home/cedx/Lcov.net/func2.cs", report.SourceFiles[2].Path);
+		AreEqual("/home/CedX/Lcov.net/Fixture.cs", report.SourceFiles[0].Path);
+		AreEqual("/home/CedX/Lcov.net/Func1.cs", report.SourceFiles[1].Path);
+		AreEqual("/home/CedX/Lcov.net/Func2.cs", report.SourceFiles[2].Path);
 
 		var branches = report.SourceFiles[1].Branches!;
 		AreEqual(4, branches.Found);
