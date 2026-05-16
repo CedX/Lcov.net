@@ -13,7 +13,7 @@ public sealed class SourceFileTests {
 		var sourceFile = new SourceFile(path: "");
 		AreEqual("SF:\nend_of_record", sourceFile.ToString());
 
-		sourceFile = new SourceFile("/home/cedx/lcov.net/program.cs") { Branches = new(), Functions = new(), Lines = new() };
-		AreEqual($"SF:/home/cedx/lcov.net/program.cs\n{sourceFile.Functions}\n{sourceFile.Branches}\n{sourceFile.Lines}\nend_of_record", sourceFile.ToString());
+		sourceFile = new SourceFile("/home/cedx/Lcov.net/program.cs") { Branches = new(), Functions = new(), Lines = new() };
+		AreEqual($"SF:/home/cedx/Lcov.net/program.cs\n{sourceFile.Functions}\n{sourceFile.Branches}\n{sourceFile.Lines}\nend_of_record", sourceFile.ToString());
 	}
 }

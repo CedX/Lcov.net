@@ -15,9 +15,9 @@
 
 	PrivateData = @{
 		PSData = @{
-			LicenseUri = "https://github.com/cedx/lcov.net/blob/main/License.md"
-			ProjectUri = "https://github.com/cedx/lcov.net"
-			ReleaseNotes = "https://github.com/cedx/lcov.net/releases"
+			LicenseUri = "https://github.com/CedX/Lcov.net/blob/main/License.md"
+			ProjectUri = "https://github.com/CedX/Lcov.net"
+			ReleaseNotes = "https://github.com/CedX/Lcov.net/releases"
 			Tags = "coverage", "formatter", "lcov", "parser", "test", "writer"
 		}
 	}

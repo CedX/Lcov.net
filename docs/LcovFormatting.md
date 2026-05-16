@@ -11,7 +11,7 @@ var lineData = new[] {
   new LineData { LineNumber = 7, ExecutionCount = 2, Checksum = "yGMB6FhEEAd8OyASe3Ni1w" }
 };
 
-var sourceFile = new SourceFile("/home/cedx/lcov.net/fixture.cs") {
+var sourceFile = new SourceFile("/home/cedx/Lcov.net/fixture.cs") {
   Functions = new FunctionCoverage { Found = 1, Hit = 1 },
   Lines = new LineCoverage { Found = 2, Hit = 2, Data = lineData }
 };
@@ -24,7 +24,7 @@ The `Report.ToString()` method will return a [LCOV](https://github.com/linux-tes
 
 ```lcov
 TN:Example
-SF:/home/cedx/lcov.net/fixture.cs
+SF:/home/cedx/Lcov.net/fixture.cs
 FNF:1
 FNH:1
 DA:6,2,PF4Rz2r7RTliO9u6bZ7h6g
@@ -35,5 +35,5 @@ end_of_record
 ```
 
 > [!TIP]
-> See the [source code](https://github.com/cedx/lcov.net/tree/main/src) of this library
+> See the [source code](https://github.com/CedX/Lcov.net/tree/main/src) of this library
 > for detailed information on the available classes.

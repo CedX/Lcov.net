@@ -13,7 +13,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
 		<PackageTags>coverage;formatter;lcov;parser;test;writer</PackageTags>
-		<RepositoryUrl>https://github.com/cedx/lcov.net.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/CedX/Lcov.net.git</RepositoryUrl>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
