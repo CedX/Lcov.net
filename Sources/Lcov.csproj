@@ -8,25 +8,27 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<Authors>CedX</Authors>
+		<IncludeSymbols>true</IncludeSymbols>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+		<PackageTags>coverage;formatter;lcov;parser;test;writer</PackageTags>
+		<RepositoryUrl>https://github.com/CedX/Lcov.net.git</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<AssemblyName>Belin.Lcov.Tests</AssemblyName>
-		<BaseOutputPath>obj</BaseOutputPath>
+		<AssemblyName>Belin.Lcov</AssemblyName>
+		<HotReloadAutoRestart>true</HotReloadAutoRestart>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<OutDir>../bin</OutDir>
+		<OutDir>../Binaries</OutDir>
 		<RootNamespace>Belin.Lcov</RootNamespace>
-		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.*" />
-		<PackageReference Include="MSTest" Version="4.*" />
-		<ProjectReference Include="../src/Lcov.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
-		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting.Assert" Static="true" />
+		<None Include="../ReadMe.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 </Project>
