@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [5.0.0](https://github.com/CedX/Lcov.net/compare/v4.0.0...v5.0.0)
+- Breaking change: replaced the parameterized constructors of the data records by parameterless constructors.
+
 ## Version [4.0.0](https://github.com/CedX/Lcov.net/compare/v3.0.0...v4.0.0)
 - Breaking change: changed the output of the `FunctionData.ToString()` method.
 - Breaking change: removed the `asDefinition` parameter from the `FunctionData.ToString()` method.
