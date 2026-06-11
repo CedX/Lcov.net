@@ -34,10 +34,22 @@ public sealed class LineCoverage {
 /// <summary>
 /// Provides details for line coverage.
 /// </summary>
-/// <param name="LineNumber">The line number.</param>
-/// <param name="ExecutionCount">The execution count.</param>
-/// <param name="Checksum">The data checksum.</param>
-public sealed record LineData(int LineNumber = 0, int ExecutionCount = 0, string Checksum = "") {
+public sealed record LineData {
+
+	/// <summary>
+	/// The data checksum.
+	/// </summary>
+	public string Checksum { get; init; } = "";
+
+	/// <summary>
+	/// The execution count.
+	/// </summary>
+	public int ExecutionCount { get; init; }
+
+	/// <summary>
+	/// The line number.
+	/// </summary>
+	public int LineNumber { get; init; }
 
 	/// <summary>
 	/// Returns a string representation of this object.

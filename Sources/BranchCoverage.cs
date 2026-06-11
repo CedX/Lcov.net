@@ -34,11 +34,27 @@ public sealed class BranchCoverage {
 /// <summary>
 /// Provides details for branch coverage.
 /// </summary>
-/// <param name="LineNumber">The line number.</param>
-/// <param name="BlockNumber">The block number.</param>
-/// <param name="BranchNumber">The branch number.</param>
-/// <param name="Taken">A number indicating how often this branch was taken.</param>
-public sealed record BranchData(int LineNumber = 0, int BlockNumber = 0, int BranchNumber = 0, int Taken = 0) {
+public sealed record BranchData {
+
+	/// <summary>
+	/// The block number.
+	/// </summary>
+	public int BlockNumber { get; init; }
+
+	/// <summary>
+	/// The branch number.
+	/// </summary>
+	public int BranchNumber { get; init; }
+
+	/// <summary>
+	/// The line number.
+	/// </summary>
+	public int LineNumber { get; init; }
+
+	/// <summary>
+	/// A number indicating how often this branch was taken.
+	/// </summary>
+	public int Taken { get; init; }
 
 	/// <summary>
 	/// Returns a string representation of this object.
