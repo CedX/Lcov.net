@@ -35,6 +35,8 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 	/// <returns>The resulting coverage report.</returns>
 	/// <exception cref="FormatException">A parsing error occurred.</exception>
 	public static Report Parse(string coverage) {
+		static int parseInt(string value) => int.Parse(value, NumberStyles.None, CultureInfo.InvariantCulture);
+
 		var offset = 0;
 		var report = new Report("");
 		var sourceFile = new SourceFile("") { Branches = new(), Functions = new(), Lines = new() };
@@ -57,19 +59,19 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 				case Tokens.BranchData:
 					if (data.Length < 4) throw new FormatException($"Invalid branch data at line #{offset}.");
 					sourceFile.Branches?.Data.Add(new() {
-						BlockNumber = int.Parse(data[1], NumberStyles.None),
-						BranchNumber = int.Parse(data[2], NumberStyles.None),
-						LineNumber = int.Parse(data[0], NumberStyles.None),
-						Taken = data[3] == "-" ? 0 : int.Parse(data[3], NumberStyles.None)
+						BlockNumber = parseInt(data[1]),
+						BranchNumber = parseInt(data[2]),
+						LineNumber = parseInt(data[0]),
+						Taken = data[3] == "-" ? 0 : parseInt(data[3])
 					});
 					break;
 
 				case Tokens.BranchesFound:
-					sourceFile.Branches?.Found = int.Parse(data[0], NumberStyles.None);
+					sourceFile.Branches?.Found = parseInt(data[0]);
 					break;
 
 				case Tokens.BranchesHit:
-					sourceFile.Branches?.Hit = int.Parse(data[0], NumberStyles.None);
+					sourceFile.Branches?.Hit = parseInt(data[0]);
 					break;
 
 				case Tokens.FunctionData:
@@ -78,38 +80,38 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 						var items = sourceFile.Functions.Data;
 						for (var index = 0; index < items.Count; index++)
 							if (items[index].FunctionName == data[1])
-								items[index] = items[index] with { ExecutionCount = int.Parse(data[0], NumberStyles.None) };
+								items[index] = items[index] with { ExecutionCount = parseInt(data[0]) };
 					}
 					break;
 
 				case Tokens.FunctionName:
 					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
-					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0], NumberStyles.None) });
+					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = parseInt(data[0]) });
 					break;
 
 				case Tokens.FunctionsFound:
-					sourceFile.Functions?.Found = int.Parse(data[0], NumberStyles.None);
+					sourceFile.Functions?.Found = parseInt(data[0]);
 					break;
 
 				case Tokens.FunctionsHit:
-					sourceFile.Functions?.Hit = int.Parse(data[0], NumberStyles.None);
+					sourceFile.Functions?.Hit = parseInt(data[0]);
 					break;
 
 				case Tokens.LineData:
 					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
 					sourceFile.Lines?.Data.Add(new() {
 						Checksum = data.Length >= 3 ? data[2] : "",
-						ExecutionCount = int.Parse(data[1], NumberStyles.None),
-						LineNumber = int.Parse(data[0], NumberStyles.None)
+						ExecutionCount = parseInt(data[1]),
+						LineNumber = parseInt(data[0])
 					});
 					break;
 
 				case Tokens.LinesFound:
-					sourceFile.Lines?.Found = int.Parse(data[0], NumberStyles.None);
+					sourceFile.Lines?.Found = parseInt(data[0]);
 					break;
 
 				case Tokens.LinesHit:
-					sourceFile.Lines?.Hit = int.Parse(data[0], NumberStyles.None);
+					sourceFile.Lines?.Hit = parseInt(data[0]);
 					break;
 
 				case Tokens.SourceFile:
