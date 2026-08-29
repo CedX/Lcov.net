@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [5.0.1](https://github.com/CedX/Lcov.net/compare/v5.0.0...v5.0.1)
+- Added a package icon.
+
 ## Version [5.0.0](https://github.com/CedX/Lcov.net/compare/v4.0.0...v5.0.0)
 - Breaking change: replaced the parameterized constructors of the data records by parameterless constructors.
 
