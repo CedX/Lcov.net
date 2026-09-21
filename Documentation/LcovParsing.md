@@ -2,7 +2,7 @@
 The `Report.Parse()` static method parses a [LCOV](https://github.com/linux-test-project/lcov) coverage report provided as string,
 and creates a `Report` instance giving detailed information about this coverage report:
 
-```cs
+```csharp
 using Belin.Lcov;
 using System.IO;
 using System.Text.Json;

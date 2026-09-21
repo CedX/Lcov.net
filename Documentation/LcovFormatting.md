@@ -3,7 +3,7 @@ Each class provided by this library has a dedicated `ToString()` method returnin
 the corresponding data formatted as [LCOV](https://github.com/linux-test-project/lcov) string.
 All you have to do is to create the adequate structure using these different classes, and to export the final result:
 
-```cs
+```csharp
 using Belin.Lcov;
 
 var lineData = new[] {
