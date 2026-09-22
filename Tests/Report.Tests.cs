@@ -22,47 +22,47 @@ public sealed class ReportTests {
 	[TestMethod]
 	public void Parse() {
 		var report = Report.Parse(coverage);
-		AreEqual("Example", report.TestName);
+		Assert.AreEqual("Example", report.TestName);
 
-		HasCount(3, report.SourceFiles);
-		AreEqual("/home/CedX/Lcov.net/Fixture.cs", report.SourceFiles[0].Path);
-		AreEqual("/home/CedX/Lcov.net/Func1.cs", report.SourceFiles[1].Path);
-		AreEqual("/home/CedX/Lcov.net/Func2.cs", report.SourceFiles[2].Path);
+		Assert.HasCount(3, report.SourceFiles);
+		Assert.AreEqual("/home/CedX/Lcov.net/Fixture.cs", report.SourceFiles[0].Path);
+		Assert.AreEqual("/home/CedX/Lcov.net/Func1.cs", report.SourceFiles[1].Path);
+		Assert.AreEqual("/home/CedX/Lcov.net/Func2.cs", report.SourceFiles[2].Path);
 
 		var branches = report.SourceFiles[1].Branches!;
-		AreEqual(4, branches.Found);
-		AreEqual(4, branches.Hit);
-		HasCount(4, branches.Data);
-		AreEqual(8, branches.Data[0].LineNumber);
+		Assert.AreEqual(4, branches.Found);
+		Assert.AreEqual(4, branches.Hit);
+		Assert.HasCount(4, branches.Data);
+		Assert.AreEqual(8, branches.Data[0].LineNumber);
 
 		var functions = report.SourceFiles[1].Functions!;
-		AreEqual(1, functions.Found);
-		AreEqual(1, functions.Hit);
-		HasCount(1, functions.Data);
-		AreEqual("func1", functions.Data[0].FunctionName);
+		Assert.AreEqual(1, functions.Found);
+		Assert.AreEqual(1, functions.Hit);
+		Assert.HasCount(1, functions.Data);
+		Assert.AreEqual("func1", functions.Data[0].FunctionName);
 
 		var lines = report.SourceFiles[1].Lines!;
-		AreEqual(9, lines.Found);
-		AreEqual(9, lines.Hit);
-		HasCount(9, lines.Data);
-		AreEqual("5kX7OTfHFcjnS98fjeVqNA", lines.Data[0].Checksum);
+		Assert.AreEqual(9, lines.Found);
+		Assert.AreEqual(9, lines.Hit);
+		Assert.HasCount(9, lines.Data);
+		Assert.AreEqual("5kX7OTfHFcjnS98fjeVqNA", lines.Data[0].Checksum);
 
-		Throws<FormatException>(() => Report.Parse("ZZ"));
-		Throws<FormatException>(() => Report.Parse("TN:Example"));
+		Assert.Throws<FormatException>(() => Report.Parse("ZZ"));
+		Assert.Throws<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
 		var sourceFile = new SourceFile(path: "");
-		AreEqual("", new Report("").ToString());
-		AreEqual($"TN:LcovTest\n{sourceFile}", new Report("LcovTest", [sourceFile]).ToString());
+		Assert.AreEqual("", new Report("").ToString());
+		Assert.AreEqual($"TN:LcovTest\n{sourceFile}", new Report("LcovTest", [sourceFile]).ToString());
 	}
 
 	[TestMethod]
 	public void TryParse() {
-		IsTrue(Report.TryParse(coverage, out var report));
-		IsNotNull(report);
-		IsFalse(Report.TryParse("TN:Example", out report));
-		IsNull(report);
+		Assert.IsTrue(Report.TryParse(coverage, out var report));
+		Assert.IsNotNull(report);
+		Assert.IsFalse(Report.TryParse("TN:Example", out report));
+		Assert.IsNull(report);
 	}
 }

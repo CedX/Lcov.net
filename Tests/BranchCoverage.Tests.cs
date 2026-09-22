@@ -11,8 +11,8 @@ public sealed class BranchCoverageTests {
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
 		var data = new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 };
-		AreEqual("BRF:0\nBRH:0", new BranchCoverage().ToString());
-		AreEqual($"{data}\nBRF:23\nBRH:11", new BranchCoverage { Data = [data], Found = 23, Hit = 11 }.ToString());
+		Assert.AreEqual("BRF:0\nBRH:0", new BranchCoverage().ToString());
+		Assert.AreEqual($"{data}\nBRF:23\nBRH:11", new BranchCoverage { Data = [data], Found = 23, Hit = 11 }.ToString());
 	}
 }
 
@@ -24,7 +24,7 @@ public sealed class BranchDataTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
-		AreEqual("BRDA:0,0,0,-", new BranchData().ToString());
-		AreEqual("BRDA:127,3,2,1", new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 }.ToString());
+		Assert.AreEqual("BRDA:0,0,0,-", new BranchData().ToString());
+		Assert.AreEqual("BRDA:127,3,2,1", new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 }.ToString());
 	}
 }
