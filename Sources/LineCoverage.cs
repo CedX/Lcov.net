@@ -8,7 +8,7 @@ public sealed class LineCoverage {
 	/// <summary>
 	/// The coverage data.
 	/// </summary>
-	public IList<LineData> Data { get; set; } = [];
+	public List<LineData> Data { get; set; } = [];
 
 	/// <summary>
 	/// The number of lines found.
