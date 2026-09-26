@@ -39,7 +39,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 
 		var offset = 0;
 		var report = new Report("");
-		var sourceFile = new SourceFile("") { Branches = new(), Functions = new(), Lines = new() };
+		var sourceFile = SourceFile.WithCoverage("");
 
 		foreach (var line in NewLinePattern().Split(coverage)) {
 			offset++;
@@ -115,7 +115,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 					break;
 
 				case Tokens.SourceFile:
-					sourceFile = new(data[0]) { Branches = new(), Functions = new(), Lines = new() };
+					sourceFile = SourceFile.WithCoverage(data[0]);
 					break;
 
 				case Tokens.EndOfRecord:
