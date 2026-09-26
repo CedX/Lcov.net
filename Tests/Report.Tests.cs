@@ -51,10 +51,10 @@ public sealed class ReportTests {
 		Assert.HasCount(9, lines.Data);
 		Assert.AreEqual("5kX7OTfHFcjnS98fjeVqNA", lines.Data[0].Checksum);
 
-		// It should throw an error if the input is invalid.
+		// It should throw an exception if the input is invalid.
 		Assert.Throws<FormatException>(() => Report.Parse("ZZ"));
 
-		// It should throw an error if the report is empty.
+		// It should throw an exception if the report is empty.
 		Assert.Throws<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
