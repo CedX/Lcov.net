@@ -8,7 +8,7 @@ public sealed class FunctionCoverage {
 	/// <summary>
 	/// The coverage data.
 	/// </summary>
-	public List<FunctionData> Data { get; set; } = [];
+	public IList<FunctionData> Data { get; set; } = [];
 
 	/// <summary>
 	/// The number of functions found.

@@ -21,7 +21,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 	/// <summary>
 	/// The source file list.
 	/// </summary>
-	public List<SourceFile> SourceFiles { get; set; } = [.. sourceFiles ?? []];
+	public IList<SourceFile> SourceFiles { get; set; } = [.. sourceFiles ?? []];
 
 	/// <summary>
 	/// The test name.

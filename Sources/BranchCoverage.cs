@@ -8,7 +8,7 @@ public sealed class BranchCoverage {
 	/// <summary>
 	/// The coverage data.
 	/// </summary>
-	public List<BranchData> Data { get; set; } = [];
+	public IList<BranchData> Data { get; set; } = [];
 
 	/// <summary>
 	/// The number of branches found.
