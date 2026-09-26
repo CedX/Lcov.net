@@ -1,14 +1,12 @@
 namespace Belin.Lcov;
 
-using System.ComponentModel;
-
 /// <summary>
 /// Tests the features of the <see cref="SourceFile"/> class.
 /// </summary>
 [TestClass]
 public sealed class SourceFileTests {
 
-	[TestMethod, DisplayName("ToString")]
+	[TestMethod]
 	public void TestToString() {
 		var sourceFile = new SourceFile(path: "");
 		Assert.AreEqual("SF:\nend_of_record", sourceFile.ToString());

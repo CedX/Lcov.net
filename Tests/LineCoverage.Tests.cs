@@ -1,14 +1,12 @@
 namespace Belin.Lcov;
 
-using System.ComponentModel;
-
 /// <summary>
 /// Tests the features of the <see cref="LineCoverage"/> class.
 /// </summary>
 [TestClass]
 public sealed class LineCoverageTests {
 
-	[TestMethod, DisplayName("ToString")]
+	[TestMethod]
 	public void TestToString() {
 		var data = new LineData { ExecutionCount = 3, LineNumber = 127 };
 		Assert.AreEqual("LF:0\nLH:0", new LineCoverage().ToString());
@@ -22,7 +20,7 @@ public sealed class LineCoverageTests {
 [TestClass]
 public sealed class LineDataTests {
 
-	[TestMethod, DisplayName("ToString")]
+	[TestMethod]
 	public void TestToString() {
 		var data = new LineData { Checksum = "ed076287532e86365e841e92bfc50d8c", ExecutionCount = 3, LineNumber = 127 };
 		Assert.AreEqual("DA:0,0", new LineData().ToString());
