@@ -30,7 +30,7 @@ public sealed class SourceFile(string path) {
 	/// Creates a new instance with default coverage values.
 	/// </summary>
 	/// <param name="path">The path to the source file.</param>
-	/// <returns>The newly created instance.</returns>
+	/// <returns>The newly created source file.</returns>
 	public static SourceFile WithCoverage(string path) =>
 		new(path) { Branches = new(), Functions = new(), Lines = new() };
 
