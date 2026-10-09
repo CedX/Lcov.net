@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 /// <summary>
 /// Provides the coverage data of lines.
 /// </summary>
-public sealed class LineCoverage {
+public class LineCoverage {
 
 	/// <summary>
 	/// The coverage data.
@@ -34,7 +34,7 @@ public sealed class LineCoverage {
 /// <summary>
 /// Provides details for line coverage.
 /// </summary>
-public sealed record LineData {
+public record LineData {
 
 	/// <summary>
 	/// The data checksum.

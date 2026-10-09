@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 /// <summary>
 /// Provides the coverage data of branches.
 /// </summary>
-public sealed class BranchCoverage {
+public class BranchCoverage {
 
 	/// <summary>
 	/// The coverage data.
@@ -34,7 +34,7 @@ public sealed class BranchCoverage {
 /// <summary>
 /// Provides details for branch coverage.
 /// </summary>
-public sealed record BranchData {
+public record BranchData {
 
 	/// <summary>
 	/// The block number.

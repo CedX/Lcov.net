@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 /// <summary>
 /// Provides the coverage data of functions.
 /// </summary>
-public sealed class FunctionCoverage {
+public class FunctionCoverage {
 
 	/// <summary>
 	/// The coverage data.
@@ -34,7 +34,7 @@ public sealed class FunctionCoverage {
 /// <summary>
 /// Provides details for function coverage.
 /// </summary>
-public sealed record FunctionData {
+public record FunctionData {
 
 	/// <summary>
 	/// The execution count.

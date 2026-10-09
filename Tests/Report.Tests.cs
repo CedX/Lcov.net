@@ -4,7 +4,7 @@ namespace Belin.Lcov;
 /// Tests the features of the <see cref="Report"/> class.
 /// </summary>
 [TestClass]
-public sealed class ReportTests {
+public class ReportTests {
 
 	/// <summary>
 	/// The test fixture.
@@ -22,54 +22,54 @@ public sealed class ReportTests {
 		var report = Report.Parse(coverage);
 
 		// It should have a test name.
-		Assert.AreEqual("Example", report.TestName);
+		report.TestName.ShouldBe("Example");
 
 		// It should contain three source files.
-		Assert.HasCount(3, report.SourceFiles);
-		Assert.AreEqual("/home/CedX/Lcov.net/Fixture.cs", report.SourceFiles[0].Path);
-		Assert.AreEqual("/home/CedX/Lcov.net/Func1.cs", report.SourceFiles[1].Path);
-		Assert.AreEqual("/home/CedX/Lcov.net/Func2.cs", report.SourceFiles[2].Path);
+		report.SourceFiles.Count.ShouldBe(3);
+		report.SourceFiles[0].Path.ShouldBe("/home/CedX/Lcov.net/Fixture.cs");
+		report.SourceFiles[1].Path.ShouldBe("/home/CedX/Lcov.net/Func1.cs");
+		report.SourceFiles[2].Path.ShouldBe("/home/CedX/Lcov.net/Func2.cs");
 
 		// It should have detailed branch coverage.
 		var branches = report.SourceFiles[1].Branches!;
-		Assert.AreEqual(4, branches.Found);
-		Assert.AreEqual(4, branches.Hit);
-		Assert.HasCount(4, branches.Data);
-		Assert.AreEqual(8, branches.Data[0].LineNumber);
+		branches.Found.ShouldBe(4);
+		branches.Hit.ShouldBe(4);
+		branches.Data.Count.ShouldBe(4);
+		branches.Data[0].LineNumber.ShouldBe(8);
 
 		// It should have detailed function coverage.
 		var functions = report.SourceFiles[1].Functions!;
-		Assert.AreEqual(1, functions.Found);
-		Assert.AreEqual(1, functions.Hit);
-		Assert.HasCount(1, functions.Data);
-		Assert.AreEqual("func1", functions.Data[0].FunctionName);
+		functions.Found.ShouldBe(1);
+		functions.Hit.ShouldBe(1);
+		functions.Data.Count.ShouldBe(1);
+		functions.Data[0].FunctionName.ShouldBe("func1");
 
 		// It should have detailed line coverage.
 		var lines = report.SourceFiles[1].Lines!;
-		Assert.AreEqual(9, lines.Found);
-		Assert.AreEqual(9, lines.Hit);
-		Assert.HasCount(9, lines.Data);
-		Assert.AreEqual("5kX7OTfHFcjnS98fjeVqNA", lines.Data[0].Checksum);
+		lines.Found.ShouldBe(9);
+		lines.Hit.ShouldBe(9);
+		lines.Data.Count.ShouldBe(9);
+		lines.Data[0].Checksum.ShouldBe("5kX7OTfHFcjnS98fjeVqNA");
 
 		// It should throw an exception if the input is invalid.
-		Assert.Throws<FormatException>(() => Report.Parse("ZZ"));
+		Should.Throw<FormatException>(() => Report.Parse("ZZ"));
 
 		// It should throw an exception if the report is empty.
-		Assert.Throws<FormatException>(() => Report.Parse("TN:Example"));
+		Should.Throw<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
 	[TestMethod]
 	public void TestToString() {
 		var sourceFile = new SourceFile(path: "");
-		Assert.AreEqual("", new Report("").ToString());
-		Assert.AreEqual($"TN:LcovTest\n{sourceFile}", new Report("LcovTest", [sourceFile]).ToString());
+		new Report("").ToString().ShouldBe("");
+		new Report("LcovTest", [sourceFile]).ToString().ShouldBe($"TN:LcovTest\n{sourceFile}");
 	}
 
 	[TestMethod]
 	public void TryParse() {
-		Assert.IsTrue(Report.TryParse(coverage, out var report));
-		Assert.IsNotNull(report);
-		Assert.IsFalse(Report.TryParse("TN:Example", out report));
-		Assert.IsNull(report);
+		Report.TryParse(coverage, out var report).ShouldBeTrue();
+		report.ShouldNotBeNull();
+		Report.TryParse("TN:Example", out report).ShouldBeFalse();
+		report.ShouldBeNull();
 	}
 }

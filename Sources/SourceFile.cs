@@ -4,7 +4,7 @@ namespace Belin.Lcov;
 /// Provides the coverage data of a source file.
 /// </summary>
 /// <param name="path">The path to the source file.</param>
-public sealed class SourceFile(string path) {
+public class SourceFile(string path) {
 
 	/// <summary>
 	/// The branch coverage.

@@ -4,13 +4,13 @@ namespace Belin.Lcov;
 /// Tests the features of the <see cref="LineCoverage"/> class.
 /// </summary>
 [TestClass]
-public sealed class LineCoverageTests {
+public class LineCoverageTests {
 
 	[TestMethod]
 	public void TestToString() {
+		new LineCoverage().ToString().ShouldBe("LF:0\nLH:0");
 		var data = new LineData { ExecutionCount = 3, LineNumber = 127 };
-		Assert.AreEqual("LF:0\nLH:0", new LineCoverage().ToString());
-		Assert.AreEqual($"{data}\nLF:23\nLH:11", new LineCoverage { Data = [data], Found = 23, Hit = 11 }.ToString());
+		new LineCoverage { Data = [data], Found = 23, Hit = 11 }.ToString().ShouldBe($"{data}\nLF:23\nLH:11");
 	}
 }
 
@@ -18,12 +18,12 @@ public sealed class LineCoverageTests {
 /// Tests the features of the <see cref="LineData"/> class.
 /// </summary>
 [TestClass]
-public sealed class LineDataTests {
+public class LineDataTests {
 
 	[TestMethod]
 	public void TestToString() {
+		new LineData().ToString().ShouldBe("DA:0,0");
 		var data = new LineData { Checksum = "ed076287532e86365e841e92bfc50d8c", ExecutionCount = 3, LineNumber = 127 };
-		Assert.AreEqual("DA:0,0", new LineData().ToString());
-		Assert.AreEqual("DA:127,3,ed076287532e86365e841e92bfc50d8c", data.ToString());
+		data.ToString().ShouldBe("DA:127,3,ed076287532e86365e841e92bfc50d8c");
 	}
 }

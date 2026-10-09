@@ -4,13 +4,13 @@ namespace Belin.Lcov;
 /// Tests the features of the <see cref="BranchCoverage"/> class.
 /// </summary>
 [TestClass]
-public sealed class BranchCoverageTests {
+public class BranchCoverageTests {
 
 	[TestMethod]
 	public void TestToString() {
+		new BranchCoverage().ToString().ShouldBe("BRF:0\nBRH:0");
 		var data = new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 };
-		Assert.AreEqual("BRF:0\nBRH:0", new BranchCoverage().ToString());
-		Assert.AreEqual($"{data}\nBRF:23\nBRH:11", new BranchCoverage { Data = [data], Found = 23, Hit = 11 }.ToString());
+		new BranchCoverage { Data = [data], Found = 23, Hit = 11 }.ToString().ShouldBe($"{data}\nBRF:23\nBRH:11");
 	}
 }
 
@@ -18,11 +18,11 @@ public sealed class BranchCoverageTests {
 /// Tests the features of the <see cref="BranchData"/> class.
 /// </summary>
 [TestClass]
-public sealed class BranchDataTests {
+public class BranchDataTests {
 
 	[TestMethod]
 	public void TestToString() {
-		Assert.AreEqual("BRDA:0,0,0,-", new BranchData().ToString());
-		Assert.AreEqual("BRDA:127,3,2,1", new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 }.ToString());
+		new BranchData().ToString().ShouldBe("BRDA:0,0,0,-");
+		new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 }.ToString().ShouldBe("BRDA:127,3,2,1");
 	}
 }
