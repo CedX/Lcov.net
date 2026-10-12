@@ -1,4 +1,4 @@
-<Solution>
+<Solution ProjectVersion="5.0.1">
 	<Project Path="Sources/Lcov.csproj" />
 	<Project Path="Tests/Lcov.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
