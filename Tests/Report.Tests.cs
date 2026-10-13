@@ -9,13 +9,7 @@ public class ReportTests {
 	/// <summary>
 	/// The test fixture.
 	/// </summary>
-	private readonly string coverage;
-
-	/// <summary>
-	/// Creates a new test.
-	/// </summary>
-	public ReportTests() =>
-		coverage = File.ReadAllText(Path.Join(AppContext.BaseDirectory, "../Resources/Lcov.info"));
+	private readonly string coverage = File.ReadAllText(Path.Join(AppContext.BaseDirectory, "../Resources/Lcov.info"));
 
 	[TestMethod]
 	public void Parse() {
