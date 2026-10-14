@@ -1,5 +1,10 @@
 # Changelog
 
+## Version [2026.10.0](https://github.com/CedX/Lcov.net/compare/v5.0.1...v2026.10.0)
+- Added the `SourceFile.WithCoverage()` method.
+- Removed the `sealed` modifier from the classes.
+- Switched to a year-based versioning.
+
 ## Version [5.0.1](https://github.com/CedX/Lcov.net/compare/v5.0.0...v5.0.1)
 - Added a package icon.
 
