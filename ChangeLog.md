@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [2026.11.0](https://github.com/CedX/Lcov.net/compare/v2026.10.0...v2026.11.0)
+- Changed the type of the `Data` properties in the coverage classes to `List`.
+- Changed the type of the `Report.SourceFiles` property to `List`.
+
 ## Version [2026.10.0](https://github.com/CedX/Lcov.net/compare/v5.0.1...v2026.10.0)
 - Added the `SourceFile.WithCoverage()` method.
 - Removed the `sealed` modifier from the classes.
