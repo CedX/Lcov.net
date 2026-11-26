@@ -12,9 +12,8 @@ using System.Text.RegularExpressions;
 public partial class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null) {
 
 	/// <summary>
-	/// Gets the regular expression used to split the lines.
+	/// The regular expression used to split the lines.
 	/// </summary>
-	/// <returns>The regular expression used to split the lines.</returns>
 	[GeneratedRegex(@"\r?\n")]
 	private static partial Regex NewLinePattern { get; }
 
