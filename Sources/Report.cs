@@ -16,7 +16,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 	/// </summary>
 	/// <returns>The regular expression used to split the lines.</returns>
 	[GeneratedRegex(@"\r?\n")]
-	private static partial Regex NewLinePattern();
+	private static partial Regex NewLinePattern { get; }
 
 	/// <summary>
 	/// The source file list.
@@ -41,7 +41,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 		var report = new Report("");
 		var sourceFile = SourceFile.WithCoverage("");
 
-		foreach (var line in NewLinePattern().Split(coverage)) {
+		foreach (var line in NewLinePattern.Split(coverage)) {
 			offset++;
 			if (string.IsNullOrWhiteSpace(line)) continue;
 
